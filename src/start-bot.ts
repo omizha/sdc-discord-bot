@@ -32,6 +32,8 @@ import {
     Logger,
 } from './services/index.js';
 import { Trigger } from './triggers/index.js';
+import { JoinButton } from './buttons/joinButton.js';
+import { AddJoinButtonCommand } from './commands/chat/add-join-button.js';
 
 const require = createRequire(import.meta.url);
 let Config = require('../config/config.json');
@@ -60,6 +62,7 @@ async function start(): Promise<void> {
         new HelpCommand(),
         new InfoCommand(),
         new TestCommand(),
+        new AddJoinButtonCommand(),
 
         // Message Context Commands
         new ViewDateSent(),
@@ -71,9 +74,7 @@ async function start(): Promise<void> {
     ];
 
     // Buttons
-    let buttons: Button[] = [
-        // TODO: Add new buttons here
-    ];
+    let buttons: Button[] = [new JoinButton()];
 
     // Reactions
     let reactions: Reaction[] = [
