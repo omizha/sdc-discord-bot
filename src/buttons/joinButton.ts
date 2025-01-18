@@ -23,8 +23,8 @@ export class JoinButton implements Button {
         const messages = await intr.channel.messages.fetch({ limit: 10 });
         const targetMessages = messages.filter(
             msg =>
-                msg.content.includes('소셜데브클럽 합류하는 방법') ||
-                msg.content.includes('Player 권한을 얻기 위해서는')
+                msg.content.includes('소셜데브클럽 커뮤니티 소개') ||
+                msg.content.includes('소셜데브클럽 합류하면 좋은점')
         );
 
         let hasAllReactions = true;
