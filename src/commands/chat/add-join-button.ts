@@ -7,12 +7,14 @@ import {
 } from 'discord.js';
 import { RateLimiter } from 'discord.js-rate-limiter';
 
+import { Language } from '../../models/enum-helpers/language.js';
 import { EventData } from '../../models/internal-models.js';
+import { Lang } from '../../services/index.js';
 import { InteractionUtils } from '../../utils/index.js';
 import { Command, CommandDeferType } from '../index.js';
 
 export class AddJoinButtonCommand implements Command {
-    public names = ['addjoinbutton'];
+    public names = [Lang.getRef('chatCommands.add-join-button', Language.Default)];
     public cooldown = new RateLimiter(1, 5000);
     public deferType = CommandDeferType.PUBLIC;
     public requireClientPerms: PermissionsString[] = [];
