@@ -1,6 +1,6 @@
-import { ButtonInteraction, GuildMember, PermissionFlagsBits } from 'discord.js';
+import { ButtonInteraction, GuildMember } from 'discord.js';
+
 import { Button, ButtonDeferType } from './button.js';
-import { EventData } from '../models/internal-models.js';
 
 export class JoinButton implements Button {
     public ids = ['join_club'];
@@ -8,7 +8,7 @@ export class JoinButton implements Button {
     public requireGuild = true;
     public requireEmbedAuthorTag = false;
 
-    public async execute(intr: ButtonInteraction, data: EventData): Promise<void> {
+    public async execute(intr: ButtonInteraction): Promise<void> {
         const member = intr.member as GuildMember;
 
         // 기본 프로필 확인
@@ -57,14 +57,17 @@ export class JoinButton implements Button {
 
             await member.roles.add(playerRole);
             await intr.reply({
-                content: '� 축하합니다! Player 권한이 부여되었습니다.',
+                content: '🎉 축하합니다! Player 권한이 부여되었습니다.',
                 ephemeral: true,
             });
         } catch (error) {
-            await intr.reply({
-                content: '역할 부여 중 오류가 발생했습니다. 관리자에게 문의해주세요.',
-                ephemeral: true,
-            });
+            console.error(error);
+            if (!intr.replied) {  // 응답이 아직 보내지지 않았을 경우에만 reply 사용
+                await intr.reply({
+                    content: '역할 부여 중 오류가 발생했습니다. 관리자에게 문의해주세요.',
+                    ephemeral: true,
+                });
+            }
         }
     }
 }
