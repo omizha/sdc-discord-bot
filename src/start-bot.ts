@@ -3,6 +3,8 @@ import { Options, Partials } from 'discord.js';
 import { createRequire } from 'node:module';
 
 import { Button } from './buttons/index.js';
+import { JoinButton } from './buttons/joinButton.js';
+import { AddJoinButtonCommand } from './commands/chat/add-join-button.js';
 import { DevCommand, HelpCommand, InfoCommand, TestCommand } from './commands/chat/index.js';
 import {
     ChatCommandMetadata,
@@ -32,8 +34,6 @@ import {
     Logger,
 } from './services/index.js';
 import { Trigger } from './triggers/index.js';
-import { JoinButton } from './buttons/joinButton.js';
-import { AddJoinButtonCommand } from './commands/chat/add-join-button.js';
 
 const require = createRequire(import.meta.url);
 let Config = require('../config/config.json');
