@@ -62,15 +62,15 @@ async function start(): Promise<void> {
         new HelpCommand(),
         new InfoCommand(),
         new TestCommand(),
-        new AddJoinButtonCommand(),
-
+        
         // Message Context Commands
         new ViewDateSent(),
-
+        
         // User Context Commands
         new ViewDateJoined(),
-
+        
         // TODO: Add new commands here
+        new AddJoinButtonCommand(),
     ];
 
     // Buttons

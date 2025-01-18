@@ -1,11 +1,12 @@
 import {
-    ChatInputCommandInteraction,
-    PermissionsString,
     ActionRowBuilder,
     ButtonBuilder,
     ButtonStyle,
+    ChatInputCommandInteraction,
+    PermissionsString,
 } from 'discord.js';
 import { RateLimiter } from 'discord.js-rate-limiter';
+
 import { EventData } from '../../models/internal-models.js';
 import { InteractionUtils } from '../../utils/index.js';
 import { Command, CommandDeferType } from '../index.js';
@@ -16,7 +17,7 @@ export class AddJoinButtonCommand implements Command {
     public deferType = CommandDeferType.PUBLIC;
     public requireClientPerms: PermissionsString[] = [];
 
-    public async execute(intr: ChatInputCommandInteraction, data: EventData): Promise<void> {
+    public async execute(intr: ChatInputCommandInteraction, _data: EventData): Promise<void> {
         try {
             const messages = await intr.channel.messages.fetch({ limit: 10 });
             const targetMessage = messages.find(msg =>
@@ -40,7 +41,7 @@ export class AddJoinButtonCommand implements Command {
             });
 
             await InteractionUtils.send(intr, '버튼이 성공적으로 추가되었습니다.');
-        } catch (error) {
+        } catch {
             await InteractionUtils.send(intr, '버튼 추가 중 오류가 발생했습니다.');
         }
     }
