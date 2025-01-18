@@ -69,6 +69,17 @@ export const ChatCommandMetadata: {
         dm_permission: true,
         default_member_permissions: undefined,
     },
+    ADD_JOIN_BUTTON: {
+        type: ApplicationCommandType.ChatInput,
+        name: Lang.getRef('chatCommands.add-join-button', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('chatCommands.add-join-button'),
+        description: Lang.getRef('commandDescs.add-join-button', Language.Default),
+        description_localizations: Lang.getRefLocalizationMap('commandDescs.add-join-button'),
+        dm_permission: false,
+        default_member_permissions: PermissionsBitField.resolve([
+            PermissionFlagsBits.Administrator,
+        ]).toString(),
+    },
 };
 
 export const MessageCommandMetadata: {

@@ -192,7 +192,8 @@
             "dev": "dev",
             "help": "help",
             "info": "info",
-            "test": "test"
+            "test": "test",
+            "add-join-button": "add-join-button"
         },
         "userCommands": {
             "viewDateJoined": "View Date Joined"
@@ -205,10 +206,11 @@
             "option": "option"
         },
         "commandDescs": {
-            "dev": "Developer use only.",
-            "help": "Find help or contact support.",
-            "info": "View bot info.",
-            "test": "Run the test command."
+            "dev": "개발자 전용 사용.",
+            "help": "도움을 찾거나 지원에 연락하세요.",
+            "info": "봇 정보를 확인하세요.",
+            "test": "테스트 명령어를 실행하세요.",
+            "add-join-button": "서버 참여 버튼을 추가하세요."
         },
         "argDescs": {
             "devCommand": "Command.",
