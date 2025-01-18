@@ -43,8 +43,9 @@ export class AddJoinButtonCommand implements Command {
             });
 
             await InteractionUtils.send(intr, '버튼이 성공적으로 추가되었습니다.');
-        } catch {
+        } catch (error) {
             await InteractionUtils.send(intr, '버튼 추가 중 오류가 발생했습니다.');
+            console.error(error);
         }
     }
 }
