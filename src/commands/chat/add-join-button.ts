@@ -21,31 +21,29 @@ export class AddJoinButtonCommand implements Command {
 
     public async execute(intr: ChatInputCommandInteraction, _data: EventData): Promise<void> {
         try {
-            const messages = await intr.channel.messages.fetch({ limit: 10 });
-            console.log('🚀 ~ AddJoinButtonCommand ~ execute ~ messages:', messages)
-            const targetMessage = messages.find(msg =>
-                msg.content.includes('소셜데브클럽 합류하는 방법')
-            );
-
-            if (!targetMessage) {
-                await InteractionUtils.send(intr, '대상 메시지를 찾을 수 없습니다.');
-                return;
-            }
+            const welcomeMessage = 
+                '## :space_invader: 소셜데브클럽 합류하는 방법\n' +
+                '- 디스코드 **Player** 권한을 얻으면 합류할 수 있어요.\n' +
+                '- **Player** 권한을 얻기 위해서는 아래 조건이 필요해요.\n' +
+                '  - 위의 모든 메시지에 이모지를 달아보아요 :sparkling_heart:\n' +
+                '  - 기본 프로필사진이면 변경해주세요!';
 
             const button = new ButtonBuilder()
                 .setCustomId('join_club')
                 .setLabel('합류하기')
                 .setStyle(ButtonStyle.Primary);
 
-            const row = new ActionRowBuilder<ButtonBuilder>().addComponents(button);
+            const row = new ActionRowBuilder<ButtonBuilder>()
+                .addComponents(button);
 
-            await targetMessage.edit({
-                components: [row],
+            await intr.channel.send({
+                content: welcomeMessage,
+                components: [row]
             });
 
-            await InteractionUtils.send(intr, '버튼이 성공적으로 추가되었습니다.');
+            await InteractionUtils.send(intr, '메시지가 성공적으로 생성되었습니다.', true);
         } catch (error) {
-            await InteractionUtils.send(intr, '버튼 추가 중 오류가 발생했습니다.');
+            await InteractionUtils.send(intr, '버튼 추가 중 오류가 발생했습니다.', true);
             console.error(error);
         }
     }
