@@ -29,6 +29,7 @@ export class JoinButton implements Button {
 
         let hasAllReactions = true;
         for (const [_, message] of targetMessages) {
+            console.log('🚀 ~ JoinButton ~ execute ~ message:', message)
             const userReactions = message.reactions.cache.filter(reaction =>
                 reaction.users.cache.has(member.id)
             );
