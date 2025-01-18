@@ -22,6 +22,7 @@ export class AddJoinButtonCommand implements Command {
     public async execute(intr: ChatInputCommandInteraction, _data: EventData): Promise<void> {
         try {
             const messages = await intr.channel.messages.fetch({ limit: 10 });
+            console.log('🚀 ~ AddJoinButtonCommand ~ execute ~ messages:', messages)
             const targetMessage = messages.find(msg =>
                 msg.content.includes('소셜데브클럽 합류하는 방법')
             );
