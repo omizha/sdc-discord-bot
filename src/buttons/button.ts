@@ -12,6 +12,7 @@ export interface Button {
 
 export enum ButtonDeferType {
     REPLY = 'REPLY',
+    REPLY_EPHEMERAL = 'REPLY_EPHEMERAL',
     UPDATE = 'UPDATE',
     NONE = 'NONE',
 }

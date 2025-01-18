@@ -58,6 +58,10 @@ export class ButtonHandler implements EventHandler {
                 await InteractionUtils.deferReply(intr);
                 break;
             }
+            case ButtonDeferType.REPLY_EPHEMERAL: {
+                await InteractionUtils.deferReply(intr, true);
+                break;
+            }
             case ButtonDeferType.UPDATE: {
                 await InteractionUtils.deferUpdate(intr);
                 break;

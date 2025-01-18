@@ -4,7 +4,7 @@ import { Button, ButtonDeferType } from './button.js';
 
 export class JoinButton implements Button {
     public ids = ['join_club'];
-    public deferType = ButtonDeferType.REPLY;
+    public deferType = ButtonDeferType.REPLY_EPHEMERAL;
     public requireGuild = true;
     public requireEmbedAuthorTag = false;
 
@@ -15,34 +15,6 @@ export class JoinButton implements Button {
         if (member.user.avatar === null) {
             await intr.editReply({
                 content: '기본 프로필 사진을 사용중이시네요! 프로필 사진을 변경해주세요.',
-            });
-            return;
-        }
-
-        // 리액션 확인
-        const messages = await intr.channel.messages.fetch({ limit: 10 });
-        const targetMessages = messages.filter(
-            msg =>
-                msg.content.includes('소셜데브클럽 커뮤니티 소개') ||
-                msg.content.includes('소셜데브클럽 합류하면 좋은점')
-        );
-
-        let hasAllReactions = true;
-        for (const [_, message] of targetMessages) {
-            console.log('🚀 ~ JoinButton ~ execute ~ message:', message)
-            const userReactions = message.reactions.cache.filter(reaction =>
-                reaction.users.cache.has(member.id)
-            );
-
-            if (userReactions.size === 0) {
-                hasAllReactions = false;
-                break;
-            }
-        }
-
-        if (!hasAllReactions) {
-            await intr.editReply({
-                content: '먼저 위의 모든 메시지에 이모지를 달아주세요!',
             });
             return;
         }
