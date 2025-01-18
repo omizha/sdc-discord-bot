@@ -11,11 +11,13 @@ export class JoinButton implements Button {
     public async execute(intr: ButtonInteraction): Promise<void> {
         const member = intr.member as GuildMember;
 
+    // 먼저 응답을 지연시킵니다
+    await intr.deferReply({ ephemeral: true });
+
         // 기본 프로필 확인
         if (member.user.avatar === null) {
-            await intr.reply({
+            await intr.editReply({
                 content: '기본 프로필 사진을 사용중이시네요! 프로필 사진을 변경해주세요.',
-                ephemeral: true,
             });
             return;
         }
@@ -41,9 +43,8 @@ export class JoinButton implements Button {
         }
 
         if (!hasAllReactions) {
-            await intr.reply({
+            await intr.editReply({
                 content: '먼저 위의 모든 메시지에 이모지를 달아주세요!',
-                ephemeral: true,
             });
             return;
         }
@@ -56,18 +57,14 @@ export class JoinButton implements Button {
             }
 
             await member.roles.add(playerRole);
-            await intr.reply({
+            await intr.editReply({
                 content: '🎉 축하합니다! Player 권한이 부여되었습니다.',
-                ephemeral: true,
             });
         } catch (error) {
             console.error(error);
-            if (!intr.replied) {  // 응답이 아직 보내지지 않았을 경우에만 reply 사용
-                await intr.reply({
-                    content: '역할 부여 중 오류가 발생했습니다. 관리자에게 문의해주세요.',
-                    ephemeral: true,
-                });
-            }
+            await intr.editReply({
+                content: '역할 부여 중 오류가 발생했습니다. 관리자에게 문의해주세요.',
+            });
         }
     }
 }
