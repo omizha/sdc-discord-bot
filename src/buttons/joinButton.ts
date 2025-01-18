@@ -11,9 +11,6 @@ export class JoinButton implements Button {
     public async execute(intr: ButtonInteraction): Promise<void> {
         const member = intr.member as GuildMember;
 
-    // 먼저 응답을 지연시킵니다
-    await intr.deferReply({ ephemeral: true });
-
         // 기본 프로필 확인
         if (member.user.avatar === null) {
             await intr.editReply({
