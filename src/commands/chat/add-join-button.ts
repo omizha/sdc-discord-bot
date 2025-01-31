@@ -23,10 +23,8 @@ export class AddJoinButtonCommand implements Command {
         try {
             const welcomeMessage = 
                 '## :space_invader: 소셜데브클럽 합류하는 방법\n' +
-                '- 디스코드 **Player** 권한을 얻으면 합류할 수 있어요.\n' +
-                '- **Player** 권한을 얻기 위해서는 아래 조건이 필요해요.\n' +
-                '  - 위의 모든 메시지에 이모지를 달아보아요 :sparkling_heart:\n' +
-                '  - 기본 프로필사진이면 변경해주세요!';
+                '- 기본 프로필사진이면 변경해주세요!\n' +
+                '- 준비가 되었다면, 아래 버튼을 눌러주세요!';
 
             const button = new ButtonBuilder()
                 .setCustomId('join_club')
