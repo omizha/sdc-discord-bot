@@ -36,14 +36,14 @@ export class AddJoinCommunityButtonCommand implements Command {
                 .setStyle(ButtonStyle.Primary)
                 .setEmoji('💝');
 
-            const buttonDeveloper = new ButtonBuilder()
-                .setCustomId('join_community_developer')
+            const buttonEngineer = new ButtonBuilder()
+                .setCustomId('join_community_engineer')
                 .setLabel('커뮤니티 개발팀 합류하기')
                 .setStyle(ButtonStyle.Primary)
                 .setEmoji('🔧');
 
             const row = new ActionRowBuilder<ButtonBuilder>()
-                .addComponents(buttonBranding, buttonDeveloper);
+                .addComponents(buttonBranding, buttonEngineer);
 
             await intr.channel.send({
                 content: welcomeMessage,

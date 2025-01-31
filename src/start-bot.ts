@@ -5,7 +5,7 @@ import { createRequire } from 'node:module';
 import { Button } from './buttons/index.js';
 import { JoinButton } from './buttons/joinButton.js';
 import { JoinCommunityBrandingButton } from './buttons/joinCommunityBranding.js';
-import { JoinCommunityEnginnerButton } from './buttons/joinCommunityEnginner.js';
+import { JoinCommunityEngineerButton } from './buttons/joinCommunityEngineer.js';
 import { JoinStockDevPlatformButton } from './buttons/joinStockDevPlatform.js';
 import { JoinStockDevServiceButton } from './buttons/joinStockDevService.js';
 import { JoinStockPlanDesignButton } from './buttons/joinStockPlanDesignButton.js';
@@ -86,7 +86,7 @@ async function start(): Promise<void> {
     let buttons: Button[] = [
         new JoinButton(),
         new JoinCommunityBrandingButton(),
-        new JoinCommunityEnginnerButton(),
+        new JoinCommunityEngineerButton(),
         new JoinStockDevPlatformButton(),
         new JoinStockDevServiceButton(),
         new JoinStockPlanDesignButton(),

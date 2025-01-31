@@ -2,15 +2,15 @@ import { ButtonInteraction, GuildMember } from 'discord.js';
 
 import { Button, ButtonDeferType } from './button.js';
 
-export class JoinCommunityEnginnerButton implements Button {
-    public ids = ['join_community_enginner'];
+export class JoinCommunityEngineerButton implements Button {
+    public ids = ['join_community_engineer'];
     public deferType = ButtonDeferType.REPLY_EPHEMERAL;
     public requireGuild = true;
     public requireEmbedAuthorTag = false;
 
     public async execute(intr: ButtonInteraction): Promise<void> {
         const member = intr.member as GuildMember;
-        const roleName = 'CommunityEnginner';
+        const roleName = 'CommunityEngineer';
 
         // CommunityEnginner 역할 부여
         try {
