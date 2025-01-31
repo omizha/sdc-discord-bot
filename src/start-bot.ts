@@ -5,6 +5,7 @@ import { createRequire } from 'node:module';
 import { Button } from './buttons/index.js';
 import { JoinButton } from './buttons/joinButton.js';
 import { AddJoinButtonCommand } from './commands/chat/add-join-button.js';
+import { AddJoinStockButtonCommand } from './commands/chat/add-join-stock-button.js';
 import { DevCommand, HelpCommand, InfoCommand, TestCommand } from './commands/chat/index.js';
 import {
     ChatCommandMetadata,
@@ -71,6 +72,7 @@ async function start(): Promise<void> {
         
         // TODO: Add new commands here
         new AddJoinButtonCommand(),
+        new AddJoinStockButtonCommand(),
     ];
 
     // Buttons

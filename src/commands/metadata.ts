@@ -80,6 +80,17 @@ export const ChatCommandMetadata: {
             PermissionFlagsBits.Administrator,
         ]).toString(),
     },
+    ADD_JOIN_STOCK_BUTTON: {
+        type: ApplicationCommandType.ChatInput,
+        name: Lang.getRef('chatCommands.add-join-stock-button', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('chatCommands.add-join-stock-button'),
+        description: Lang.getRef('commandDescs.add-join-stock-button', Language.Default),
+        description_localizations: Lang.getRefLocalizationMap('commandDescs.add-join-stock-button'),
+        dm_permission: false,
+        default_member_permissions: PermissionsBitField.resolve([
+            PermissionFlagsBits.Administrator,
+        ]).toString(),
+    },
 };
 
 export const MessageCommandMetadata: {
