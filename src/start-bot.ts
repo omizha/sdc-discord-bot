@@ -4,6 +4,9 @@ import { createRequire } from 'node:module';
 
 import { Button } from './buttons/index.js';
 import { JoinButton } from './buttons/joinButton.js';
+import { JoinStockDevPlatformButton } from './buttons/joinStockDevPlatform.js';
+import { JoinStockDevServiceButton } from './buttons/joinStockDevService.js';
+import { JoinStockPlanDesignButton } from './buttons/joinStockPlanDesignButton.js';
 import { AddJoinButtonCommand } from './commands/chat/add-join-button.js';
 import { AddJoinStockButtonCommand } from './commands/chat/add-join-stock-button.js';
 import { DevCommand, HelpCommand, InfoCommand, TestCommand } from './commands/chat/index.js';
@@ -76,7 +79,12 @@ async function start(): Promise<void> {
     ];
 
     // Buttons
-    let buttons: Button[] = [new JoinButton()];
+    let buttons: Button[] = [
+        new JoinButton(),
+        new JoinStockDevPlatformButton(),
+        new JoinStockDevServiceButton(),
+        new JoinStockPlanDesignButton(),
+    ];
 
     // Reactions
     let reactions: Reaction[] = [
