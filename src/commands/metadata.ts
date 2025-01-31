@@ -91,6 +91,17 @@ export const ChatCommandMetadata: {
             PermissionFlagsBits.Administrator,
         ]).toString(),
     },
+    ADD_JOIN_COMMUNITY_BUTTON: {
+        type: ApplicationCommandType.ChatInput,
+        name: Lang.getRef('chatCommands.add-join-community-button', Language.Default),
+        name_localizations: Lang.getRefLocalizationMap('chatCommands.add-join-community-button'),
+        description: Lang.getRef('commandDescs.add-join-community-button', Language.Default),
+        description_localizations: Lang.getRefLocalizationMap('commandDescs.add-join-community-button'),
+        dm_permission: false,
+        default_member_permissions: PermissionsBitField.resolve([
+            PermissionFlagsBits.Administrator,
+        ]).toString(),
+    },
 };
 
 export const MessageCommandMetadata: {

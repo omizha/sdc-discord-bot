@@ -194,7 +194,8 @@
             "info": "info",
             "test": "test",
             "add-join-button": "add-join-button",
-            "add-join-stock-button": "add-join-stock-button"
+            "add-join-stock-button": "add-join-stock-button",
+            "add-join-community-button": "add-join-community-button"
         },
         "userCommands": {
             "viewDateJoined": "View Date Joined"
@@ -212,7 +213,8 @@
             "info": "봇 정보를 확인하세요.",
             "test": "테스트 명령어를 실행하세요.",
             "add-join-button": "서버 참여 버튼을 추가하세요.",
-            "add-join-stock-button": "주식게임 참여 버튼을 추가하세요."
+            "add-join-stock-button": "주식게임 참여 버튼을 추가하세요.",
+            "add-join-community-button": "소셜데브클럽 커뮤니티 참여 버튼을 추가하세요."
         },
         "argDescs": {
             "devCommand": "Command.",
